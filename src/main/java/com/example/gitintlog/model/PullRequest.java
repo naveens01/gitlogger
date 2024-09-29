@@ -1,21 +1,47 @@
 package com.example.gitintlog.model;
 
-
-import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.time.LocalDateTime;
-
-@Data
-@Document(collection = "pullRequests")
 public class PullRequest {
-    @Id
-    private String id;
     private String title;
     private String author;
     private String repository;
-    private String status;  // Merged, Pending, Closed
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
+    private Status status;
+
+    // Getters and Setters
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getRepository() {
+        return repository;
+    }
+
+    public void setRepository(String repository) {
+        this.repository = repository;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public enum Status {
+        OPEN,
+        CLOSED,
+        MERGED
+    }
 }
