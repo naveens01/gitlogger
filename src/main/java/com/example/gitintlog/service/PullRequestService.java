@@ -28,7 +28,6 @@ public class PullRequestService {
         }
         return pullRequestRepository.save(pullRequest);
     }
-
     // Retrieve all pull requests
     public List<PullRequest> getAllPRs() {
         return pullRequestRepository.findAll();

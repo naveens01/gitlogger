@@ -38,7 +38,7 @@ public class PullRequestController {
             PullRequest savedPR = pullRequestService.savePR(pullRequest);
             return new ResponseEntity<>(savedPR, HttpStatus.CREATED);
         } catch (ResponseStatusException ex) {
-            return new ResponseEntity<>(null, ex.getStatus());
+            return new ResponseEntity<>(null, ex.getStatusCode()); // Update this line
         }
     }
 
@@ -49,7 +49,7 @@ public class PullRequestController {
             PullRequest pullRequest = pullRequestService.getPRById(id);
             return new ResponseEntity<>(pullRequest, HttpStatus.OK);
         } catch (ResponseStatusException ex) {
-            return new ResponseEntity<>(null, ex.getStatus());
+            return new ResponseEntity<>(null, ex.getStatusCode()); // Update this line
         }
     }
 
@@ -60,7 +60,7 @@ public class PullRequestController {
             PullRequest updatedPR = pullRequestService.updatePR(id, pullRequest);
             return new ResponseEntity<>(updatedPR, HttpStatus.OK);
         } catch (ResponseStatusException ex) {
-            return new ResponseEntity<>(null, ex.getStatus());
+            return new ResponseEntity<>(null, ex.getStatusCode()); // Update this line
         }
     }
 
